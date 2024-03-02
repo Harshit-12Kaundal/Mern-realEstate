@@ -131,9 +131,7 @@ export default function Listing() {
                         </li>
                     </ul>
                 </div>
-
             </div>   
-
         )}
     </main>
   );
