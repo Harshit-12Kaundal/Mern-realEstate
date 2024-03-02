@@ -18,7 +18,7 @@ export default function UpdateListing() {
         type:'rent',
         bedrooms:1,
         bathrooms:1,
-        regularprice:50,
+        regularPrice:50,
         discountedPrice:0,
         offer:false,
         parking:false,
@@ -28,6 +28,7 @@ export default function UpdateListing() {
     const [uploading,setUploading] = useState(false);
     const [error, setError] = useState(false);
     const [loading, setLoading] = useState(false);
+    console.log(formData);
 
     useEffect(() =>{
         const fetchListing = async () =>{
@@ -202,7 +203,7 @@ export default function UpdateListing() {
                         <p>Baths</p>
                     </div>
                     <div className="flex items-center gap-2">
-                        <input type="number" id="regularprice" min="50" max="1000000" required className="p-3 border border-gray-300 rounded-lg"
+                        <input type="number" id="regularPrice" min="50" max="1000000" required className="p-3 border border-gray-300 rounded-lg"
                         onChange={handleChange} value={formData.regularPrice}/>
                         <div className="flex flex-col items-center">
                             <p>Regular Price</p>
