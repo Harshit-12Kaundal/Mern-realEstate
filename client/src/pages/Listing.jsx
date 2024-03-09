@@ -25,6 +25,7 @@ export default function Listing() {
     const params=useParams() ;
     const [contact ,setContact]=useState(false);
     const {currentUser} = useSelector((state) => state.user);
+    console.log(listing);
 
     useEffect(() =>{
         const fetchListing= async () =>{
@@ -34,7 +35,7 @@ export default function Listing() {
                 const res =await fetch(`/api/listing/get/${params.listingId}`)
                 const data= await res.json();
     
-                if(data.success==false){
+                if(data.success===false){
                     setError(true);
                     setLoading(false);
                     return;
@@ -117,11 +118,11 @@ export default function Listing() {
                     <ul className="  text-green-900 font-semibold text-sm flex flex-wrap items-center gap-4 sm:">
                         <li className="flex item-center gap-1 whitespace-nowrap">
                             <FaBed className="text-lg"/>
-                            {listing.bedrooms >1 ? `${listing.bedroom} beds` : `${listing.bedroom} bed`}
+                            {listing.bedrooms >1 ? `${listing.bedrooms} beds` : `${listing.bedrooms} bed`}
                         </li>
                         <li className="flex item-center gap-1 whitespace-nowrap">
                             <FaBath className="text-lg"/>
-                            {listing.bathrooms >1 ? `${listing.bathroom} baths` : `${listing.bathroom} bath`}
+                            {listing.bathrooms >1 ? `${listing.bathrooms} baths` : `${listing.bathrooms} bath`}
                         </li>
                         <li className="flex item-center gap-1 whitespace-nowrap">
                             <FaParking className="text-lg"/>

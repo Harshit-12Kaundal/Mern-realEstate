@@ -43,7 +43,7 @@ export const updateListing = async(req, res, next)=>{
         const updateListing = await Listing.findByIdAndUpdate(
             req.params.id, 
             req.body, 
-            {new :true}
+            {new: true}
             );
             res.status(200).json(updateListing);
     } catch (error) {

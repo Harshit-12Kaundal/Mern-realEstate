@@ -28,7 +28,8 @@ export default function UpdateListing() {
     const [uploading,setUploading] = useState(false);
     const [error, setError] = useState(false);
     const [loading, setLoading] = useState(false);
-    console.log(formData);
+    // console.log(formData.bedrooms);
+    // console.log(formData.bathrooms);
 
     useEffect(() =>{
         const fetchListing = async () =>{
@@ -43,8 +44,7 @@ export default function UpdateListing() {
         }
         fetchListing();
     },[]);
-    const handleImageSubmit = (e)=>{
-        e.preventDefault();
+    const handleImageSubmit = ()=>{
         if(files.length > 0 && files.length +formData.imageUrls.length< 7){
             setUploading(true);
             setImageUploadError(false);
@@ -130,8 +130,8 @@ export default function UpdateListing() {
       const handleSubmit = async(e) =>{
         e.preventDefault();
         try {
-            if(formData.imageUrls<1) return setError('You must upload atleast one image');
-            if(formData.regularprice<formData.discountedPrice)  return setError('Discounted price must be less than regular price')
+            if(formData.imageUrls.length<1) return setError('You must upload atleast one image');
+            if(+formData.regularPrice< +formData.discountedPrice)  return setError('Discounted price must be less than regular price')
             setLoading(true);
             setError(false);
 
@@ -242,7 +242,7 @@ export default function UpdateListing() {
 
                 ))
             }
-            <button disabled={loading || uploading} className="p-3 bg-slate-700 text-white rounded-lg uppercase hover:opacity-95 disabled:opacity-80"> {loading ?"Creating..." : "update Listing"}</button>
+            <button disabled={loading || uploading} className="p-3 bg-slate-700 text-white rounded-lg uppercase hover:opacity-95 disabled:opacity-80"> {loading ?"Updating..." : "update Listing"}</button>
             {error && <p className="text-red-700 text-sm">{error}</p>}
             </div>
         </form>

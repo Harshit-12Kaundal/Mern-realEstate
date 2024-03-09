@@ -118,7 +118,7 @@ export default function CreateListing() {
         e.preventDefault();
         try {
             if(formData.imageUrls<1) return setError('You must upload atleast one image');
-            if(formData.regularprice<formData.discountedPrice)  return setError('Discounted price must be less than regular price')
+            if(formData.regularPrice<formData.discountedPrice)  return setError('Discounted price must be less than regular price')
             setLoading(true);
             setError(false);
 
@@ -133,7 +133,7 @@ export default function CreateListing() {
             if(data.success===false){
                 setError(data.message);
             }
-            navigate(`/listing /${data._id}`);
+            navigate(`/listing/${data._id}`);
         } catch (error) {
             setError(error.message);
             setLoading(false);
