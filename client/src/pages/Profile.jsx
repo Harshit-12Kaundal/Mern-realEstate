@@ -97,7 +97,7 @@ export default function Profile(){
 
   const handleSignout = async () =>{
     try {
-      dispatch(signoutUserStart);
+      dispatch(signoutUserStart());
       const res= await fetch(`/api/auth/signout`);
       const data=await res.json();
       if(data.success===false){

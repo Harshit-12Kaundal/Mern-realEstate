@@ -28,7 +28,6 @@ export default function CreateListing() {
     const [uploading,setUploading] = useState(false);
     const [error, setError] = useState(false);
     const [loading, setLoading] = useState(false);
-    console.log(formData);
 
     const handleImageSubmit = (e)=>{
         e.preventDefault();
