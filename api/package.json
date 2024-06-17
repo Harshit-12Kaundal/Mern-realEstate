@@ -1,13 +1,12 @@
 {
   "name": "realestate_proj",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "type": "module",
   "scripts": {
     "dev": "nodemon index.js",
     "start": "node index.js",
-    "build":"npm run build"
+    "build": "npm run build"
   },
   "keywords": [],
   "author": "",
@@ -21,5 +20,7 @@
     "mongodb": "^6.3.0",
     "mongoose": "^8.1.1",
     "nodemon": "^3.0.3"
-  }
+  },
+  "devDependencies": {},
+  "description": ""
 }
